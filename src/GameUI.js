@@ -1,18 +1,38 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import CharacterBars from './CharacterBars';
+import React from 'react';
+// import { observer } from 'mobx-react';
 
-function GameUI() {
-    return (
-        <div className="GameUI">
-            <Container fluid>
-                <Row>
-                    <Col xs="2"><CharacterBars /></Col>
-                </Row>
-            </Container>
-        </div>
-    );
+import CharacterBars from './CharacterBars';
+import { GameUIState } from './GameUIState';
+
+class GameUI extends React.Component {
+    constructor() {
+        super();
+
+        window.gameUIState = new GameUIState();
+        
+        window.UpdateHealthBar = function(amount)
+        {
+            window.gameUIState.characterStats.health = amount;
+        };
+    }
+
+    render() {
+        return (
+            <div className="GameUI">
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-2">
+                            <CharacterBars />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
+
+// const GameUI = observer(
+    
+// );
 
 export default GameUI;
