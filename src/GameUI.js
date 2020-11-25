@@ -21,7 +21,7 @@ class GameUI extends React.Component {
 
     toggleGeneralUIBacking()
     {
-        if (window.toggleGeneralUI != undefined)
+        if (window.toggleGeneralUI !== undefined)
         {
             window.toggleGeneralUI();
         }
@@ -38,12 +38,16 @@ class GameUI extends React.Component {
                     </div>
                     <div className="row fixed-bottom p-3">
                         <div className="d-flex justify-content-between vw-100">
-                            <div className="d-flex">
-                                <div className="btn btn-primary" data-toggle="modal" data-target="#left_modal_lg" onClick={this.toggleGeneralUIBacking}>CHARACTER</div>
+                            <div className="d-flex ml-2">
+                                <div className="btn btn-primary" 
+                                     data-toggle="modal"
+                                     data-target="#left_modal_lg" 
+                                     onClick={this.toggleGeneralUIBacking}
+                                     style={{ height: `38px` }}>CHARACTER</div>
                             </div>
                             <HotBar />
-                            <div className="d-flex">
-                                <div className="btn btn-primary">SETTINGS</div>
+                            <div className="d-flex mr-2">
+                                <div className="btn btn-primary" style={{ height: `38px` }}>SETTINGS</div>
                             </div>
                             
                         </div>
