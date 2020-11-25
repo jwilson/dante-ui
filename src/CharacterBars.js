@@ -8,7 +8,6 @@ const CharacterBars = observer(
         }
         
         render() {
-            console.log(window.gameUIState.characterStats);
             return (
                 <div className="pt-3">
                     <div className="p-1 pl-0">
@@ -38,10 +37,5 @@ const CharacterBars = observer(
         }
     }
 );
-
-
-// function CharacterBars() {
-    
-// }
 
 export default CharacterBars;

@@ -1,7 +1,8 @@
 import React from 'react';
-// import { observer } from 'mobx-react';
 
 import CharacterBars from './CharacterBars';
+import GameMenuSideModal from './GameMenuSideModal';
+import HotBar from './HotBar';
 import { GameUIState } from './GameUIState';
 
 class GameUI extends React.Component {
@@ -14,6 +15,16 @@ class GameUI extends React.Component {
         {
             window.gameUIState.characterStats.health = amount;
         };
+
+        this.toggleGeneralUIBacking = this.toggleGeneralUIBacking.bind(this);
+    }
+
+    toggleGeneralUIBacking()
+    {
+        if (window.toggleGeneralUI != undefined)
+        {
+            window.toggleGeneralUI();
+        }
     }
 
     render() {
@@ -25,14 +36,23 @@ class GameUI extends React.Component {
                             <CharacterBars />
                         </div>
                     </div>
+                    <div className="row fixed-bottom p-3">
+                        <div className="d-flex justify-content-between vw-100">
+                            <div className="d-flex">
+                                <div className="btn btn-primary" data-toggle="modal" data-target="#left_modal_lg" onClick={this.toggleGeneralUIBacking}>CHARACTER</div>
+                            </div>
+                            <HotBar />
+                            <div className="d-flex">
+                                <div className="btn btn-primary">SETTINGS</div>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
+                <GameMenuSideModal />
             </div>
         );
     }
 }
-
-// const GameUI = observer(
-    
-// );
 
 export default GameUI;
