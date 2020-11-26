@@ -37,13 +37,13 @@ class CharacterSheetsModal extends React.Component {
                                         </li>
                                         <li className="nav-item">
                                             <ActiveLink activeOnlyWhenExact={true}
-                                                        variant="success"
+                                                        variant="danger"
                                                         to="/inventory"
                                                         label="Inventory" />
                                         </li>
                                         <li className="nav-item">
                                             <ActiveLink activeOnlyWhenExact={true}
-                                                        variant="warning"
+                                                        variant="primary"
                                                         to="/skills"
                                                         label="Skills" />
                                         </li>
@@ -54,7 +54,6 @@ class CharacterSheetsModal extends React.Component {
                                                         label="Companions" />
                                         </li>
                                     </ul>
-                                    {/* <h5 className="modal-title">Left Modal LG Title</h5> */}
                                     {/* <div className="close" data-dismiss="modal">
                                     <span>×</span>
                                     </div> */}
@@ -76,8 +75,8 @@ class CharacterSheetsModal extends React.Component {
                                     </Switch>
                                 </div>
                                 <div className="modal-footer modal-footer-fixed vw-100 clear-fix">
-                                    <div className="btn btn-secondary" data-dismiss="modal">Close</div>
-                                    <div className="btn btn-primary">Update</div>
+                                    <div className="btn btn-warning" data-dismiss="modal">Close</div>
+                                    <div className="btn btn-success">Apply Changes</div>
                                 </div>
                             </div>
                         </Router>
@@ -95,7 +94,8 @@ function ActiveLink({ label, to, variant, activeOnlyWhenExact }) {
         exact: activeOnlyWhenExact
     });
 
-    let rootMatch = (location.pathname === '/index.html' || location.pathname === '/') && to.toString() === '/character';
+    let rootMatch = (location.pathname === '/index.html' || location.pathname === '/') 
+        && to.toString() === '/character';
     let activeClass = " active bg-" + variant;
 
     return (
