@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 
 import 'jquery/dist/jquery.min.js';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 const CharacterBars = observer(
     class CharacterBars extends React.Component {
@@ -10,14 +10,14 @@ const CharacterBars = observer(
             super();
         }
 
-        componentDidMount() {
-            $('#left_modal_lg').on('hide.bs.modal', function() {
-                if (window.toggleGeneralUI !== undefined)
-                {
-                    window.toggleGeneralUI();
-                }
-            });
-        }
+        // componentDidMount() {
+        //     $('#left_modal_lg').on('hide.bs.modal', function() {
+        //         if (window.toggleGeneralUI !== undefined)
+        //         {
+        //             window.toggleGeneralUI();
+        //         }
+        //     });
+        // }
         
         render() {
             return (

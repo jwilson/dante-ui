@@ -40,19 +40,19 @@ class GameUI extends React.Component {
                     <div className="row fixed-bottom p-3">
                         <div className="d-flex justify-content-between vw-100">
                             <div className="d-flex ml-2">
-                                <div className="btn btn-dark" 
+                                <a className="btn btn-dark" 
                                      data-toggle="modal"
                                      data-target="#left_modal_lg" 
                                      onClick={this.toggleGeneralUIBacking}
-                                     style={{ height: `38px` }}>CHARACTER</div>
+                                     style={{ height: `38px` }} href="#!">CHARACTER</a>
                             </div>
                             <HotBar />
                             <div className="d-flex mr-2">
-                                <div className="btn btn-dark" 
+                                <a className="btn btn-dark" 
                                      data-toggle="modal"
                                      data-target="#fullscreen_modal" 
                                      onClick={this.toggleGeneralUIBacking}
-                                     style={{ height: `38px` }}>MENU</div>
+                                     style={{ height: `38px` }} href="#!">MENU</a>
                             </div>
                             
                         </div>

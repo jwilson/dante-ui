@@ -1,6 +1,18 @@
 import React from 'react';
 
+import 'jquery/dist/jquery.min.js';
+import $ from 'jquery';
+
 class MainMenuModal extends React.Component {
+    componentDidMount() {
+        $('#fullscreen_modal').on('hide.bs.modal', function() {
+            if (window.toggleGeneralUI !== undefined)
+            {
+                window.toggleGeneralUI();
+            }
+        });
+    }
+
     render() {
         return (
             <div className="modal full fade" id="fullscreen_modal">

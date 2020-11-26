@@ -6,13 +6,25 @@ import Skills from './Skills';
 import Inventory from './Inventory';
 import Companions from './Companions';
 
+import 'jquery/dist/jquery.min.js';
+import $ from 'jquery';
+
 class CharacterSheetsModal extends React.Component {
+    componentDidMount() {
+        $('#left_modal_lg').on('hide.bs.modal', function() {
+            if (window.toggleGeneralUI !== undefined)
+            {
+                window.toggleGeneralUI();
+            }
+        });
+    }
+
     render() {
         return (
             <div className="GameMenuSideModal">
                 <div className="modal left fade" id="left_modal_lg" style={{ display: `none` }}>
                     <div className="modal-dialog modal-lg">
-                        <Router basename="/sheets">
+                        <Router>
                             <div className="modal-content">
                                 <div className="modal-header">
                                     <ul className="nav nav-pills nav-fill">
@@ -49,7 +61,7 @@ class CharacterSheetsModal extends React.Component {
                                 </div>
                                 <div className="modal-body">
                                     <Switch>
-                                        <Route exact path="/character">
+                                        <Route exact path={["/character", "/index.html", "/"]}>
                                             <Character />
                                         </Route>
                                         <Route exact path="/inventory">
@@ -83,9 +95,16 @@ function ActiveLink({ label, to, variant, activeOnlyWhenExact }) {
         exact: activeOnlyWhenExact
     });
 
-    let rootMatch = location.pathname === '/' && to.toString() === location.pathname;
+    console.log(location);
+    console.log(to);
 
+    // console.log(to.toString());
+    // console.log(to.toString() === location.pathname);
+
+    let rootMatch = (location.pathname === '/index.html' || location.pathname === '/') && to.toString() === '/character';
     let activeClass = " active bg-" + variant;
+
+    console.log(rootMatch);
 
     return (
         <Link className={`p-1 mr-1 nav-link${(rootMatch ? rootMatch : match) ? activeClass : ""}`} to={to}>{label}</Link>
