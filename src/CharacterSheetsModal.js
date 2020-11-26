@@ -95,16 +95,8 @@ function ActiveLink({ label, to, variant, activeOnlyWhenExact }) {
         exact: activeOnlyWhenExact
     });
 
-    console.log(location);
-    console.log(to);
-
-    // console.log(to.toString());
-    // console.log(to.toString() === location.pathname);
-
     let rootMatch = (location.pathname === '/index.html' || location.pathname === '/') && to.toString() === '/character';
     let activeClass = " active bg-" + variant;
-
-    console.log(rootMatch);
 
     return (
         <Link className={`p-1 mr-1 nav-link${(rootMatch ? rootMatch : match) ? activeClass : ""}`} to={to}>{label}</Link>
