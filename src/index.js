@@ -5,8 +5,10 @@ import GameUI from './GameUI';
 
 import 'jquery/dist/jquery.min.js';
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+import '@fontawesome/fontawesome-pro/js/all.js';
 
 // import reportWebVitals from './reportWebVitals';
 

@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Switch, Route, useRouteMatch, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route  } from 'react-router-dom';
 
 import Character from './Character';
 import Skills from './Skills';
 import Inventory from './Inventory';
 import Companions from './Companions';
+import ActiveLink from './ActiveLink';
 
 import 'jquery/dist/jquery.min.js';
 import $ from 'jquery';
@@ -85,22 +86,6 @@ class CharacterSheetsModal extends React.Component {
             </div>
         );
     }
-}
-
-function ActiveLink({ label, to, variant, activeOnlyWhenExact }) {
-    let location = useLocation();
-    let match = useRouteMatch({
-        path: to,
-        exact: activeOnlyWhenExact
-    });
-
-    let rootMatch = (location.pathname === '/index.html' || location.pathname === '/') 
-        && to.toString() === '/character';
-    let activeClass = " active bg-" + variant;
-
-    return (
-        <Link className={`p-1 mr-1 nav-link${(rootMatch ? rootMatch : match) ? activeClass : ""}`} to={to}>{label}</Link>
-    );
 }
 
 export default CharacterSheetsModal;

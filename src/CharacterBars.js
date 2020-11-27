@@ -10,16 +10,7 @@ const CharacterBars = observer(
             super();
         }
 
-        // componentDidMount() {
-        //     $('#left_modal_lg').on('hide.bs.modal', function() {
-        //         if (window.toggleGeneralUI !== undefined)
-        //         {
-        //             window.toggleGeneralUI();
-        //         }
-        //     });
-        // }
-        
-        render() {
+         render() {
             return (
                 <div className="CharacterBars pt-3">
                     <div className="p-1 pl-0">
