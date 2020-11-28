@@ -21,8 +21,7 @@ class GameUI extends React.Component {
         this.toggleGeneralUIBacking = this.toggleGeneralUIBacking.bind(this);
     }
 
-    toggleGeneralUIBacking()
-    {
+    toggleGeneralUIBacking() {
         if (window.toggleGeneralUI !== undefined)
         {
             window.toggleGeneralUI();

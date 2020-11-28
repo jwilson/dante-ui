@@ -1,4 +1,62 @@
 import React from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { observer } from 'mobx-react';
+import InventoryItem from './InventoryItem';
+import ArmorItem from './ArmorItem';
+import WeaponItem from './WeaponItem';
+import { ArmorItemTypes } from './ItemTypes';
+
+const InventoryArea = observer(
+    class InventoryArea extends React.Component {
+        render() {
+            return (
+                <DndProvider backend={HTML5Backend}>
+                    <div style={{ maxWidth: `790px` }}>
+                        <div style={{ maxWidth: `790px` }}>
+                            <div className="clear-fix pt-2 pb-1 pl-2" style={{ maxHeight:`400px`,minHeight: `350px`, overflowY: `auto` }}>
+                                {window.gameUIState.inventory.map((v, i) => <InventoryItem itemType={v.itemType} details={v} key={i} />)}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row border-top pt-4 pr-3" style={{ height: `200px` }}>
+                        <div className="col-12">
+                            <div className="row mb-4">
+                                <div className="col-12 d-flex justify-content-around">
+                                    <ArmorItem armorType={ArmorItemTypes.HELMET} />
+                                    <ArmorItem armorType={ArmorItemTypes.CHEST} />
+                                    <ArmorItem armorType={ArmorItemTypes.GLOVES} />
+                                    <ArmorItem armorType={ArmorItemTypes.PANTS} />
+                                    <ArmorItem armorType={ArmorItemTypes.BOOTS} />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-12 d-flex justify-content-around">
+                                    <WeaponItem primary={true} />
+                                    <WeaponItem primary={false} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row pt-3 pr-3">
+                        <div className="col-12 d-flex justify-content-around">
+                            <div className="d-inline-block">GOLD</div>
+                            <div className="d-inline-block">SILVER</div>
+                            <div className="d-inline-block">COPPER</div>
+                        </div>
+                        <div className="col-12 d-flex justify-content-around">
+                            <div className="d-inline-block">DIAMONDS</div>
+                            <div className="d-inline-block">RUBIES</div>
+                            <div className="d-inline-block">EMERALDS</div>
+                            <div className="d-inline-block">TURQUOISE</div>
+                            <div className="d-inline-block">ONYX</div>
+                        </div>
+                    </div>
+                </DndProvider>
+            );
+        }
+    }
+);
 
 class Inventory extends React.Component {
     render() {
@@ -20,137 +78,10 @@ class Inventory extends React.Component {
                         <h4 className="d-inline-block text-secondary"><i className="fad fa-star"></i></h4>
                     </div>
                 </div>
-                <div style={{ maxWidth: `790px` }}>
-                    <div style={{ maxWidth: `790px` }}>
-                        <div className="clear-fix pt-2 pb-1 pl-2" style={{ maxHeight:`400px`,minHeight: `250px`, overflowY: `auto` }}>
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                            <InventoryItem />
-                        </div>
-                    </div>
-                </div>
-                <div className="row border-top pt-4 pr-3" style={{ height: `200px` }}>
-                    <div className="col-12">
-                        <div className="row mb-4">
-                            <div className="col-12 d-flex justify-content-around">
-                                <div className="shadow m-1 bg-secondary float-left inventory-item"></div>
-                                <div className="shadow m-1 bg-secondary float-left inventory-item"></div>
-                                <div className="shadow m-1 bg-secondary float-left inventory-item"></div>
-                                <div className="shadow m-1 bg-secondary float-left inventory-item"></div>
-                                <div className="shadow m-1 bg-secondary float-left inventory-item"></div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-12 d-flex justify-content-around">
-                                <div className="shadow m-1 bg-info float-left inventory-item"></div>
-                                <div className="shadow m-1 bg-info float-left inventory-item"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="row pt-3 pr-3">
-                    <div className="col-12 d-flex justify-content-around">
-                        <div className="d-inline-block">GOLD</div>
-                        <div className="d-inline-block">SILVER</div>
-                        <div className="d-inline-block">COPPER</div>
-                    </div>
-                    <div className="col-12 d-flex justify-content-around">
-                        <div className="d-inline-block">DIAMONDS</div>
-                        <div className="d-inline-block">RUBIES</div>
-                        <div className="d-inline-block">EMERALDS</div>
-                        <div className="d-inline-block">TURQUOISE</div>
-                        <div className="d-inline-block">ONYX</div>
-                    </div>
-                </div>
+                <InventoryArea />
             </div>
         );
     }
-}
-
-function InventoryItem() {
-    return (
-        <div className="shadow m-1 bg-default float-left inventory-item"></div>
-    );
 }
 
 export default Inventory;
