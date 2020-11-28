@@ -18,6 +18,21 @@ export class GameUIState {
         boots: null
     }
 
+    hasArmor(slotType) {
+        switch(slotType) {
+            case ArmorItemTypes.HELMET:
+                return this.armorSlots.helmet !== null;
+            case ArmorItemTypes.CHEST:
+               return this.armorSlots.chest !== null;
+            case ArmorItemTypes.GLOVES:
+                return this.armorSlots.gloves !== null;
+            case ArmorItemTypes.PANTS:
+               return this.armorSlots.pants !== null;
+            case ArmorItemTypes.BOOTS:
+               return this.armorSlots.boots !== null;
+        }
+    }
+
     getArmorSlot(slotType) {
         switch(slotType) {
             case ArmorItemTypes.HELMET:
@@ -55,49 +70,50 @@ export class GameUIState {
 
     inventory = [{
         itemType: InventoryItemTypes.ARMOR,
-        icon: 'fad fa-helmet-battle',
+        icon: '/static/icons/500_armor/Helm_01.png',
         kindType: ArmorItemTypes.HELMET,
-        name: 'HELM 1'
+        name: 'HELM 1',
+        
     },
     {
         itemType: InventoryItemTypes.ARMOR,
-        icon: 'fad fa-helmet-battle',
+        icon: '/static/icons/500_armor/Chest_14.png',
         kindType: ArmorItemTypes.CHEST,
         name: 'CHEST 4'
     },
     {
         itemType: InventoryItemTypes.ARMOR,
-        icon: 'fad fa-helmet-battle',
+        icon: '/static/icons/500_armor/Gloves_07.png',
         kindType: ArmorItemTypes.GLOVES,
         name: 'GLOVES 3'
     },
     {
         itemType: InventoryItemTypes.ARMOR,
-        icon: 'fad fa-helmet-battle',
+        icon: '/static/icons/500_armor/Pants_25.png',
         kindType: ArmorItemTypes.PANTS,
         name: 'PANTS 5'
     },
     {
         itemType: InventoryItemTypes.ARMOR,
-        icon: 'fad fa-helmet-battle',
+        icon: '/static/icons/500_armor/Boots_22.png',
         kindType: ArmorItemTypes.BOOTS,
         name: 'BOOTS 2'
     },
     {
         itemType: InventoryItemTypes.WEAPON,
-        icon: 'fad fa-swords',
+        icon: '/static/icons/500_weapons/Sword_17.png',
         kindType: WeaponItemTypes.SWORD,
         name: 'SWORD 1'
     },
     {
         itemType: InventoryItemTypes.WEAPON,
-        icon: 'fad fa-swords',
+        icon: '/static/icons/500_weapons/Sword_24.png',
         kindType: WeaponItemTypes.SWORD,
         name: 'SWORD 2'
     },
     {
         itemType: InventoryItemTypes.WEAPON,
-        icon: 'fad fa-swords',
+        icon: '/static/icons/500_weapons/Axe_02.png',
         kindType: WeaponItemTypes.AXE,
         name: 'AXE 1'
     }]

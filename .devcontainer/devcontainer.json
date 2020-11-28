@@ -9,7 +9,8 @@
 	},
 
 	"mounts": [
-		"source=${localEnv:USERPROFILE}\\Dante\\BrowserAssets,target=/workspaces/dante-ui/build,type=bind,consistency=cached"
+		"source=${localEnv:USERPROFILE}\\Dante\\BrowserAssets,target=/workspaces/dante-ui/build,type=bind,consistency=cached",
+		"source=${localEnv:USERPROFILE}\\Dante\\Assets\\Imported\\2000_Icons,target=/workspaces/dante-ui/public/static/icons,type=bind,consistency=cached"
 	],
 
 	// Set *default* container specific settings.json values on container create.

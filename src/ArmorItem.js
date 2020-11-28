@@ -2,10 +2,10 @@ import { useDrop } from 'react-dnd';
 import classnames from 'classnames';
 import { InventoryItemTypes } from './ItemTypes';
 
-function renderDisplayName(armorType) {
+function renderDisplayIcon(armorType) {
     let item = window.gameUIState.getArmorSlot(armorType);
 
-    return item !== null ? item.name : '';
+    return item !== null ? item.icon : '';
 }
 
 function ArmorItem(props) {
@@ -25,7 +25,7 @@ function ArmorItem(props) {
             <div className={classnames({
                 shadow: true,
                 'm-1': true,
-                'bg-secondary': true,
+                'bg-default': true,
                 'inventory-item': true,
                 // 'border-warning': highlighted,
                 //'border-info': hovered
@@ -36,8 +36,7 @@ function ArmorItem(props) {
                 style={{
                     opacity: isOver && canDrop ? 0.3 : 1.0
                 }}>
-                    <div style={{ fontSize: `0.7em` }}>{renderDisplayName(props.armorType)}</div>
-                    {/* <i className={props.details ? props.details.icon : ``}></i> */}
+                    {window.gameUIState.hasArmor(props.armorType) ? <img src={renderDisplayIcon(props.armorType)} width="55px" height="55px" /> : ''}
                     {props.children}
             </div>
             <div>{props.armorType}</div>

@@ -2,14 +2,20 @@ import { useDrop } from 'react-dnd';
 import classnames from 'classnames';
 import { InventoryItemTypes } from './ItemTypes';
 
-function renderDisplayName(primary) {
-    if (primary && window.gameUIState.primarySlot !== null) {
-        return window.gameUIState.primarySlot.name;
-    } else if (!primary && window.gameUIState.secondarySlot !== null){
-        return window.gameUIState.secondarySlot.name;
+function renderDisplayIcon(primary) {
+    if (primary) {
+        return window.gameUIState.primarySlot.icon;
+    } 
+
+    return window.gameUIState.secondarySlot.icon;
+}
+
+function hasSlot(primary) {
+    if (primary) {
+        return window.gameUIState.primarySlot !== null;
     }
 
-    return '';
+    return window.gameUIState.secondarySlot !== null;
 }
 
 function WeaponItem(props) {
@@ -32,7 +38,7 @@ function WeaponItem(props) {
         <div className={classnames({
             shadow: true,
             'm-1': true,
-            'bg-info': true,
+            'bg-default': true,
             'd-inline-block': true,
             'inventory-item': true,
             // 'border-warning': highlighted,
@@ -44,8 +50,7 @@ function WeaponItem(props) {
             style={{
                 opacity: isOver ? 0.3 : 1.0
             }}>
-                <div style={{ fontSize: `0.7em` }}>{renderDisplayName(props.primary)}</div>
-                {/* <i className={props.details.icon}></i> */}
+                {hasSlot(props.primary) ? <img src={renderDisplayIcon(props.primary)} width="55px" height="55px" /> : ''}
                 {props.children}
         </div>
     );

@@ -13,6 +13,7 @@ function InventoryItem(props) {
 
     return (
         <div className={classnames({
+            'text-center': true,
             shadow: true,
             'm-1': true,
             'bg-default': true,
@@ -27,8 +28,9 @@ function InventoryItem(props) {
                 opacity: isDragging ? 0.5 : 1,
                 cursor: 'move'
             }}>
-                <i className={props.details.icon}></i><br />
-                <div style={{ fontSize: `0.7em` }}>{props.details.name}</div>
+                <img src={props.details.icon} width="55px" height="55px" />
+                {/* <i className={props.details.icon}></i> */}<br />
+                {/* <div style={{ fontSize: `0.55em` }}>{props.details.name}</div> */}
                 {props.children}
         </div>
     );
