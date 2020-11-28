@@ -28,7 +28,7 @@ function InventoryItem(props) {
                 cursor: 'move'
             }}>
                 <i className={props.details.icon}></i><br />
-                {props.details.kindType}
+                <div style={{ fontSize: `0.7em` }}>{props.details.name}</div>
                 {props.children}
         </div>
     );
