@@ -170,6 +170,9 @@
   padding: 15px;
 }
 
+div.GameMenuSideModal div div div div.modal-body { padding-right:0 !important; }
+div.inventory-item { border:2px solid silver; height: 60px; width: 60px; }
+
 
 
 /*
